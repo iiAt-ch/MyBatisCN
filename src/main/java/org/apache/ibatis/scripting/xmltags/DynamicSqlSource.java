@@ -24,6 +24,7 @@ import org.apache.ibatis.session.Configuration;
  * @author Clinton Begin
  *
  * SqlSource的重要实现，用以解析动态SQL语句。
+ * 所谓动态 SQL是指含有动态 SQL节点（如“if”节点）或者含有“${}”占位符的语句
  */
 public class DynamicSqlSource implements SqlSource {
 

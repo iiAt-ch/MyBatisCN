@@ -26,7 +26,7 @@ import org.apache.ibatis.builder.BuilderException;
 /**
  * @author Clinton Begin
  *
- * 表达式求值器
+ * 表达式求值器(对 OGNL工具进行了进一步的易用性封装)
  */
 public class ExpressionEvaluator {
 

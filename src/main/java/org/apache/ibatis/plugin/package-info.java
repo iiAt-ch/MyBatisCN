@@ -15,5 +15,6 @@
  */
 /**
  * Base package for handing plugins.
+ * Mybatis还提供插件功能，允许其他开发者为其开发插件以扩展其功能
  */
 package org.apache.ibatis.plugin;

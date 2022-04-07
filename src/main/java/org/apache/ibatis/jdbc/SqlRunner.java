@@ -33,6 +33,8 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * 可以直接执行 SQL语句的工具类
+ *
  * @author Clinton Begin
  */
 public class SqlRunner {

@@ -21,6 +21,8 @@ import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 
 /**
+ * NoKeyGenerator不提供任何主键自增功能，其 processBefore方法和processAfter方法均为空方法
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

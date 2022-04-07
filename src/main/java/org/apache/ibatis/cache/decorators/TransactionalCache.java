@@ -31,6 +31,7 @@ import org.apache.ibatis.logging.LogFactory;
  * Entries are sent to the cache when commit is called or discarded if the Session is rolled back.
  * Blocking cache support has been added. Therefore any get() that returns a cache miss
  * will be followed by a put() so any lock associated with the key can be released.
+ * 事务操作中产生的数据需要在事务提交时写入缓存，而在事务回滚时直接销毁
  *
  * @author Clinton Begin
  * @author Eduardo Macarron

@@ -26,6 +26,8 @@ import org.xml.sax.SAXException;
 
 /**
  * Offline entity resolver for the MyBatis DTDs.
+ * 在“org.xml.sax.EntityResolver”接口中存在一个 resolveEntity 方法，可以通过实现该方法自定义给出 DTD文档流的方式，
+ * 而不是只能从互联网下载 DTD文档
  *
  * @author Clinton Begin
  * @author Eduardo Macarron

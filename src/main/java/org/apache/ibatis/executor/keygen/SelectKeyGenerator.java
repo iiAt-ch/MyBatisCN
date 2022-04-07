@@ -27,6 +27,9 @@ import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.RowBounds;
 
 /**
+ * 需要在 SQL语句前加一段 selectKey标签
+ * 面对不支持主键自增功能的数据库时，Jdbc3KeyGenerator类将无能为力。这时就需要 SelectKeyGenerator类，因为它可以真正地生成自增的主键
+ *
  * @author Clinton Begin
  * @author Jeff Butler
  */

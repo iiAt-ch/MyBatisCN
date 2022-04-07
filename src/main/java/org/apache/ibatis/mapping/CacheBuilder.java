@@ -37,6 +37,7 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 /**
  * @author Clinton Begin
  * 缓存建造者
+ * 组建缓存的过程就是根据需求为缓存的基本实现增加各种装饰的过程
  */
 public class CacheBuilder {
   // Cache的编号

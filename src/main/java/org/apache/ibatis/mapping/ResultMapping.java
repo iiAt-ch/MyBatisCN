@@ -26,6 +26,8 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * ResultMap涉及的 idArg、arg、id、result等标签都对应一个 ResultMapping对象
+ *
  * @author Clinton Begin
  */
 public class ResultMapping {

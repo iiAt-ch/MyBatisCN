@@ -51,6 +51,7 @@ import org.apache.ibatis.type.TypeHandler;
 /**
  * @author Clinton Begin
  * @author Kazuki Shimizu
+ * 映射文件的解析由 XMLMapperBuilder类负责，该类的结构与 XMLConfigBuilder类十分类似
  *
  * 这是用来解析Mapper文件的建造者
  * <mappers>
@@ -118,6 +119,7 @@ public class XMLMapperBuilder extends BaseBuilder {
       bindMapperForNamespace();
     }
 
+    // 解析时是从上到下读取文件解析的，可能会解析到一个节点，但它引用的节点还没有被定义。此时就会出现暂时性的错误
     // 下面分别用来处理失败的<resultMap>、<cache-ref>、SQL语句
     parsePendingResultMaps();
     parsePendingCacheRefs();

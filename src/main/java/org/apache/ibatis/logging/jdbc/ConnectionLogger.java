@@ -22,11 +22,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
+import org.apache.ibatis.executor.BaseExecutor;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.reflection.ExceptionUtil;
 
 /**
  * Connection proxy to add logging.
+ * 为“java.sql.Connection”类提供日志打印能力
+ * {@link BaseExecutor#getConnection(org.apache.ibatis.logging.Log)}
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
@@ -43,6 +46,11 @@ public final class ConnectionLogger extends BaseJdbcLogger implements Invocation
 
   /**
    * 代理方法
+   * 主要完成了以下两个附加的操作。
+   * · 在 prepareStatement、prepareCall这两个方法执行之前增加了日志打印操作。
+   * · 在需要返回 PreparedStatement 对象、StatementLogger 对象的方法中，返回的是这些对象的具有日志打印功能的代理对象。
+   * 这样，PreparedStatement 对象、StatementLogger对象中的方法也可以打印日志
+   *
    * @param proxy 代理对象
    * @param method 代理方法
    * @param params 代理方法的参数

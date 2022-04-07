@@ -15,5 +15,6 @@
  */
 /**
  * JDBC transaction.
+ * jdbc子包中存放的是实现 JDBC事务的 JdbcTransaction类及其对应的工厂类
  */
 package org.apache.ibatis.transaction.jdbc;

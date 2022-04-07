@@ -15,5 +15,8 @@
  */
 /**
  * Base package for languages.
+ * MyBatis支持非常灵活的 SQL语句组建方式。
+ * 我们可以在组建SQL语句时使用 foreach、where、if等标签完成复杂的语句组装工作
+ * 语句最终还是会被解析成为最基本的 SQL语句才能被数据库接收，这个解析过程主要由 scripting包完成
  */
 package org.apache.ibatis.scripting;

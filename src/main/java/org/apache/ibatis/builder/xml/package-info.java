@@ -15,5 +15,6 @@
  */
 /**
  * Parses XML files to create a Configuration
+ * MyBatis的配置文件和映射文件都是 XML文件，最终这些 XML文件需要被解析成为对应的类。builder包的 xml子包用来完成 XML文件的解析工作
  */
 package org.apache.ibatis.builder.xml;

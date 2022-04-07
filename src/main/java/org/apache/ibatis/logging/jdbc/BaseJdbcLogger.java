@@ -34,6 +34,7 @@ import org.apache.ibatis.reflection.ArrayUtil;
 
 /**
  * Base class for proxies to do logging.
+ * BaseJdbcLogger各个子类使用动态代理来实现日志的打印
  *
  * @author Clinton Begin
  * @author Eduardo Macarron

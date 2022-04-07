@@ -33,7 +33,11 @@ import org.apache.ibatis.logging.LogFactory;
 public class JBoss6VFS extends VFS {
   private static final Log log = LogFactory.getLog(JBoss6VFS.class);
 
-  /** A class that mimics a tiny subset of the JBoss VirtualFile class. */
+  /**
+   * A class that mimics a tiny subset of the JBoss VirtualFile class.
+   * 仿照 JBoss中的 VirtualFile类设计的一个功能子集
+   * VirtualFile内部类是 JBoss中 VirtualFile的静态代理类
+   */
   static class VirtualFile {
     static Class<?> VirtualFile;
     static Method getPathNameRelativeTo, getChildrenRecursively;
@@ -69,7 +73,10 @@ public class JBoss6VFS extends VFS {
     }
   }
 
-  /** A class that mimics a tiny subset of the JBoss VFS class. */
+  /**
+   * A class that mimics a tiny subset of the JBoss VFS class.
+   * VFS内部类是 JBoss中 VFS的静态代理类
+   */
   // 对JBoss VFS类子集的模仿
   static class VFS {
     static Class<?> VFS;

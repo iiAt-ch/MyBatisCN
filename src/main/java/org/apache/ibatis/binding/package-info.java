@@ -15,5 +15,11 @@
  */
 /**
  * Bings mapper interfaces with mapped statements
+ * 配置解析包-binding
+ * 主要用来处理 Java方法与 SQL语句之间绑定关系的包。
+ *
+ * binding包具有以下两个功能。（基于反射的动态代理的原理）
+ * · 维护映射接口中抽象方法与数据库操作节点之间的关联关系；
+ * · 为映射接口中的抽象方法接入对应的数据库操作。
  */
 package org.apache.ibatis.binding;

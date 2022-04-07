@@ -20,16 +20,11 @@ import java.util.Iterator;
 /**
  * @author Clinton Begin
  * 属性标记器
- */
-
-/**
- * 假设传入的为student[sId].name
- * 则各个属性得到以下结果
- *
  * 该属性标记器只能处理一级，即点后面的都作为children
  */
 public class PropertyTokenizer implements Iterator<PropertyTokenizer> {
 
+  // 假设传入的为student[sId].name，该标记器会将其拆分开，放入各个属性中。则各个属性得到以下结果
   // student
   private String name;
   // student[sId]

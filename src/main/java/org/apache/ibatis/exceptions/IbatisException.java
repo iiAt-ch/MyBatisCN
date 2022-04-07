@@ -16,6 +16,10 @@
 package org.apache.ibatis.exceptions;
 
 /**
+ * 仅仅作为PersistenceException类的父类存在，所以IbatisException类是被架空的，
+ * 可以删除IbatisException类后让PersistenceException类直接继承RuntimeException类。
+ * 因此，IbatisException类上有@Deprecated注解，表明该类在未来可能会被废弃
+ *
  * @author Clinton Begin
  */
 @Deprecated

@@ -15,5 +15,6 @@
  */
 /**
  * Base package for Datasources
+ * 通过 datasource包，MyBatis将完成数据源的获取、数据连接的建立等工作，为数据库操作语句的执行打好基础
  */
 package org.apache.ibatis.datasource;

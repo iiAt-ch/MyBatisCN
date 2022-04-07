@@ -22,11 +22,14 @@ import org.apache.ibatis.cache.Cache;
 import org.apache.ibatis.cache.CacheException;
 
 /**
+ * 一个附带 id的 HashMap，并没有什么特别之处
+ *
  * @author Clinton Begin
  */
 public class PerpetualCache implements Cache {
 
   // Cache的id，一般为所在的namespace
+  // 用来唯一标识一个缓存。一般使用映射文件的 namespace值作为缓存的id，这样就能保证不同的映射文件的缓存是不同的
   private final String id;
   // 用来存储要缓存的信息
   private Map<Object, Object> cache = new HashMap<>();

@@ -42,6 +42,11 @@ import org.apache.ibatis.reflection.property.PropertyNamer;
 /**
  * This class represents a cached set of class definition information that
  * allows for easy mapping between property names and getter/setter methods.
+ * refection包中最为核心的类就是 Reflector类
+ * Reflector 类负责对一个类进行反射解析，并将解析后的结果在属性中存储起来
+ * Reflector 类将一个类反射解析后，会将该类的属性、方法等一一归类放到以上的各个属性中。
+ * 因此 Reflector类完成了主要的反射解析工作，这也是我们将其称为反射核心类的原因。
+ * reflection包中的其他类则多是在其反射结果的基础上进一步包装的，使整个反射功能更易用
  *
  * @author Clinton Begin
  */
@@ -68,6 +73,8 @@ public class Reflector {
 
   /**
    * Reflector的构造方法
+   * Reflector类反射解析一个类的过程是由构造函数触发的，逻辑非常清晰
+   *
    * @param clazz 需要被反射处理的目标类
    */
   public Reflector(Class<?> clazz) {
@@ -325,6 +332,7 @@ public class Reflector {
    * @return An array containing all methods in this class
    */
   private Method[] getClassMethods(Class<?> clazz) {
+    // key为signature
     Map<String, Method> uniqueMethods = new HashMap<>();
     Class<?> currentClass = clazz;
     while (currentClass != null && currentClass != Object.class) {

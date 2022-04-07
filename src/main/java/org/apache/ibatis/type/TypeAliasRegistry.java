@@ -33,6 +33,9 @@ import org.apache.ibatis.io.ResolverUtil;
 import org.apache.ibatis.io.Resources;
 
 /**
+ * 类型别名注册表
+ * 有了这个注册表，我们就可以在很多场合使用类型的别名来指代具体的类型
+ *
  * @author Clinton Begin
  */
 public class TypeAliasRegistry {

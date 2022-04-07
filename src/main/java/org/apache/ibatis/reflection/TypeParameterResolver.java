@@ -26,6 +26,9 @@ import java.lang.reflect.WildcardType;
 import java.util.Arrays;
 
 /**
+ * 泛型参数解析器
+ * 帮助 MyBatis 推断出属性、返回值、输入参数中泛型的具体类型
+ *
  * @author Iwao AVE!
  */
 public class TypeParameterResolver {

@@ -95,6 +95,7 @@ public class ResolverUtil<T> {
     }
 
     /** Returns true if type is assignable to the parent type supplied in the constructor. */
+    // 判断目标类是否实现了某个接口或者继承了某各类
     @Override
     public boolean matches(Class<?> type) {
       return type != null && parent.isAssignableFrom(type);
@@ -119,6 +120,7 @@ public class ResolverUtil<T> {
     }
 
     /** Returns true if the type is annotated with the class provided to the constructor. */
+    // 判断目标类是否具有某个注解
     @Override
     public boolean matches(Class<?> type) {
       return type != null && type.isAnnotationPresent(annotation);
@@ -131,6 +133,7 @@ public class ResolverUtil<T> {
   }
 
   /** The set of matches being accumulated. */
+  // 最终通过校验的类会放到 ResolverUtil类的 matches属性中
   private Set<Class<? extends T>> matches = new HashSet<>();
 
   /**
@@ -223,6 +226,7 @@ public class ResolverUtil<T> {
    */
   /**
    * 筛选出指定路径下符合一定条件的类
+   *
    * @param test 测试条件
    * @param packageName 路径
    * @return ResolverUtil本身

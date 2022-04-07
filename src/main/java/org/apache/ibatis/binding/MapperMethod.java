@@ -39,6 +39,10 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * 要想将一个数据库操作接入一个抽象方法中，首先要做的就是将数据库操作节点转化为一个方法。
+ * MapperMethod对象就表示数据库操作转化后的方法。每个MapperMethod对象都对应了一个数据库操作节点，
+ * 调用 MapperMethod实例中的 execute方法就可以触发节点中的 SQL语句
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss
@@ -232,6 +236,7 @@ public class MapperMethod {
 
     @Override
     public V get(Object key) {
+      // 因为当我们在数据库操作中引用了一个不存在的输入参数时，这样的错误是无法消解的
       if (!super.containsKey(key)) {
         throw new BindingException("Parameter '" + key + "' not found. Available parameters are " + keySet());
       }

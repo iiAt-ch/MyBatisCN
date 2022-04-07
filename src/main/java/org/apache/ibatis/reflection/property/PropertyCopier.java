@@ -21,7 +21,7 @@ import org.apache.ibatis.reflection.Reflector;
 
 /**
  * @author Clinton Begin
- * 属性拷贝器
+ * 属性拷贝器，可以方便地将一个对象的属性复制到另一个对象中
  */
 public final class PropertyCopier {
 

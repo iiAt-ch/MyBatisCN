@@ -20,6 +20,8 @@ import java.net.URL;
 
 /**
  * A class to wrap access to multiple class loaders making them work as one
+ * 除了从磁盘中读取普通文件外，从磁盘中获取类文件（Class文件）并加载成一个类也是一种常用的功能。
+ * 要把类文件加载成类，需要类加载器的支持。ClassLoaderWrapper 类中封装了五种类加载器
  *
  * @author Clinton Begin
  */
@@ -177,6 +179,7 @@ public class ClassLoaderWrapper {
    */
   /**
    * 轮番使用各个加载器尝试加载一个类
+   *
    * @param name 类名
    * @param classLoader 类加载列表
    * @return 加载出的类
@@ -204,16 +207,17 @@ public class ClassLoaderWrapper {
 
   /**
    * 获取所有的类加载器
+   *
    * @param classLoader 传入的一种类加载器
    * @return 所有类加载器的列表
    */
   ClassLoader[] getClassLoaders(ClassLoader classLoader) {
     return new ClassLoader[]{
-        classLoader,
-        defaultClassLoader,
-        Thread.currentThread().getContextClassLoader(),
-        getClass().getClassLoader(),
-        systemClassLoader};
+        classLoader, // 作为参数传入的类加载器，可能为 null
+        defaultClassLoader, // 系统默认的类加载器，如未设置则为 null
+        Thread.currentThread().getContextClassLoader(), // 当前线程的线程上下文中的类加载器
+        getClass().getClassLoader(), // 当前对象的类加载器
+        systemClassLoader}; // 系统类加载器，在 ClassLoaderWrapper的构造方法中设置
   }
 
 }

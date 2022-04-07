@@ -16,10 +16,19 @@
 package org.apache.ibatis.logging;
 
 /**
+ * logging包中最重要的就是 Log接口，它有 11个实现类，分布在 logging包的不同子包中
+ *
  * @author Clinton Begin
  */
 public interface Log {
 
+  /**
+   * 判断打印 Debug级别日志的功能是否开启
+   * 低级别的日志很少开启，这意味着返回值大概率是false。因此代码中字符串拼接结果是无用的，会被直接丢弃。
+   * 并且低级别日志输出频次高且内容冗长，这意味着这种无用的字符串拼接是频发的且资源消耗很大
+   *
+   * @return
+   */
   boolean isDebugEnabled();
 
   boolean isTraceEnabled();

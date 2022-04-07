@@ -28,6 +28,16 @@ import org.apache.ibatis.reflection.wrapper.ObjectWrapper;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 
 /**
+ * meta 在中文中常译为“元”，在英文单词中作为词头有“涵盖”“超越”“变换”等多种含义。
+ * 在这里，这三种含义都是存在的。例如，MetaObject类中涵盖了对应Object类中的全部信息，
+ * 并经过变化和拆解得到了一些更为细节的信息。因此，可以将 MetaObject类理解为一个涵盖对象（Object）中更多细节信息和功能的类，
+ * 称为“元对象”
+ *
+ * 装饰器模式
+ *
+ * 整个包装类中除了原始对象本身外，还包装了对象包装器、对象工厂、对象包装器工厂、反射工厂等。
+ * 因此，只要使用 MetaObject对一个对象进行包装，包装类中就具有大量的辅助类，便于进行各种反射操作
+ *
  * @author Clinton Begin
  */
 public class MetaObject {

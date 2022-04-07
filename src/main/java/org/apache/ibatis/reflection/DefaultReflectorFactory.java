@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * 工厂接口的默认实现
+ * Refector的工厂接口的默认实现
  */
 public class DefaultReflectorFactory implements ReflectorFactory {
   private boolean classCacheEnabled = true;
@@ -39,7 +39,8 @@ public class DefaultReflectorFactory implements ReflectorFactory {
   }
 
   /**
-   * 生产Reflector对象
+   * 生产一个类的Reflector对象
+   *
    * @param type 目标类型
    * @return 目标类型的Reflector对象
    */

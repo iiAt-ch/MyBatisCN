@@ -18,6 +18,9 @@ package org.apache.ibatis.logging;
 import java.lang.reflect.Constructor;
 
 /**
+ * Log接口有着众多的实现类，而 LogFactory就是制造实现类的工厂。
+ * 最终，该工厂会给出一个可用的 Log实现类，由它来完成 MyBatis的日志打印工作
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  */
@@ -30,12 +33,18 @@ public final class LogFactory {
 
   private static Constructor<? extends Log> logConstructor;
 
+  /**
+   * Log 接口的实现类都是对象适配器（装饰器类除外），最终的实际工作要委托给被适配的目标对象来完成。
+   * 因此是否存在一个可用的目标对象成了适配器能否正常工作的关键所在。于是 LogFactory的主要工作就是尝试生成各个目标对象。
+   * 如果一个目标对象能够被生成，那该目标对象对应的适配器就是可用的
+   */
   static {
     tryImplementation(LogFactory::useSlf4jLogging);
     tryImplementation(LogFactory::useCommonsLogging);
     tryImplementation(LogFactory::useLog4J2Logging);
     tryImplementation(LogFactory::useLog4JLogging);
     tryImplementation(LogFactory::useJdkLogging);
+    // NoLoggingImpl 实现类是最后的保底实现类，而且NoLoggingImpl 不需要被适配对象的支持，一定能够成功。因此，最终的保底日志方案就是不输出日志
     tryImplementation(LogFactory::useNoLogging);
   }
 

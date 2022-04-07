@@ -27,6 +27,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
+ * 可以将 parsing 包中的 XNode 类看作 org.w3c.dom.Node 类的包装类。org.w3c.dom.Node类是用来表示 DOM中节点的类，
+ * 而 XNode类只是在org.w3c.dom.Node类的基础上提取和补充了几个属性
+ *
  * @author Clinton Begin
  */
 public class XNode {
@@ -42,6 +45,10 @@ public class XNode {
   //  MyBatis配置文件中的properties信息
   private final Properties variables;
   // XML解析器XPathParser
+  /**
+   * 在一个类中封装自己的解析器，这是一种非常常见的做法，如此一来这个类不需要外界的帮助便可以解析自身，即获得了自解析能力
+   * 减少了对外部类的依赖，具有更高的内聚性，也更为易用
+   */
   private final XPathParser xpathParser;
 
   public XNode(XPathParser xpathParser, Node node, Properties variables) {

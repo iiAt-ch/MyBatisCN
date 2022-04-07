@@ -15,6 +15,7 @@
  */
 /**
  * Contains all the annotation that are used in mapper interfaces
+ * 基础功能包
  */
 package org.apache.ibatis.annotations;
 

@@ -26,9 +26,16 @@ import org.apache.ibatis.io.Resources;
  * @author Daniel Guggi
  *
  * @see <a href='https://github.com/mybatis/mybatis-3/issues/161'>Issue 161</a>
+ * DefaultClassResolver 类是 OGNL 中定义的一个类，OGNL 可以通过该类进行类的读取，即将类名转化为一个类
  */
 public class OgnlClassResolver extends DefaultClassResolver {
 
+  /**
+   * 这样，OGNL在工作时可以使用 MyBatis中的 Resources类来完成类的读取
+   * @param className
+   * @return
+   * @throws ClassNotFoundException
+   */
   @Override
   protected Class toClassForName(String className) throws ClassNotFoundException {
     return Resources.classForName(className);

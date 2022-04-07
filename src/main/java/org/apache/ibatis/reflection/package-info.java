@@ -15,5 +15,7 @@
  */
 /**
  * Reflection utils.
+ * 基础功能包
+ * refection包是提供反射功能的基础包。该包功能强大且与 MyBatis的业务代码耦合度低，可以直接复制到其他项目中使用
  */
 package org.apache.ibatis.reflection;

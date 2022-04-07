@@ -15,5 +15,10 @@
  */
 /**
  * Base package for logging.
+ * 基础功能包-日志
+ * logging包负责完成 MyBatis操作中的日志记录工作。对于大多数系统而言，日志记录是必不可少的，
+ * 它能够帮助我们追踪系统的状态或者定位问题所在。MyBatis作为一个 ORM框架，运行过程中可能会在配置解析、参数处理、数据查询、结果转化等各个环节中遇到错误，
+ * 这时，MyBatis 输出的日志便成了定位错误的最好资料
+ *
  */
 package org.apache.ibatis.logging;

@@ -29,16 +29,26 @@ import org.apache.ibatis.logging.LogFactory;
 
 /**
  * Provides a very simple API for accessing resources within an application server.
+ * 磁盘文件系统分为很多种，如 FAT、VFAT、NFS、NTFS等。不同文件系统的读写操作各不相同。
+ * VFS（Virtual File System）作为一个虚拟的文件系统将各个磁盘文件系统的差异屏蔽了起来，提供了统一的操作接口。
+ * 这使得上层的软件能够用单一的方式来跟底层不同的文件系统沟通
  *
  * @author Ben Gunter
  */
 public abstract class VFS {
   private static final Log log = LogFactory.getLog(VFS.class);
 
-  /** The built-in implementations. */
+  /**
+   * The built-in implementations.
+   * 存储内置的VFS实现类
+   *
+   */
   public static final Class<?>[] IMPLEMENTATIONS = { JBoss6VFS.class, DefaultVFS.class };
 
-  /** The list to which implementations are added by {@link #addImplClass(Class)}. */
+  /**
+   * The list to which implementations are added by {@link #addImplClass(Class)}.
+   * 存储用户自定义的VFS实现类
+   */
   public static final List<Class<? extends VFS>> USER_IMPLEMENTATIONS = new ArrayList<>();
 
   /** Singleton instance holder. */

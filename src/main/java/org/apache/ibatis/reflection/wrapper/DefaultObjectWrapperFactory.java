@@ -19,6 +19,8 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.ReflectionException;
 
 /**
+ * 对象包装器工厂的接口默认实现。不过该默认实现中并没有实现任何功能。
+ * MyBatis 也允许用户通过配置文件中的 objectWrapperFactory节点来注入新的 ObjectWrapperFactory
  * @author Clinton Begin
  */
 public class DefaultObjectWrapperFactory implements ObjectWrapperFactory {

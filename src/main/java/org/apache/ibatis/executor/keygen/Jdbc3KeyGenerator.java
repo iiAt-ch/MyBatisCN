@@ -42,6 +42,9 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * 在相关语句上启用 useGeneratedKeys
+ * Jdbc3KeyGenerator类其实并没有真正地生成自增主键，而只是将数据库自增出的主键值回写到了 Java对象中
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

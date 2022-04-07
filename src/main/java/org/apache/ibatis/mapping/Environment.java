@@ -20,6 +20,8 @@ import javax.sql.DataSource;
 import org.apache.ibatis.transaction.TransactionFactory;
 
 /**
+ * Environment类也是一个解析实体类，它对应了配置文件中的environments节点
+ *
  * @author Clinton Begin
  */
 public final class Environment {

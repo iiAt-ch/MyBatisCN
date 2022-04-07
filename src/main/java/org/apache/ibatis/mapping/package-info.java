@@ -15,5 +15,11 @@
  */
 /**
  * Base package for mapping.
+ * mapping包主要完成以下功能。
+ * · SQL语句处理功能；
+ * · 输出结果处理功能；
+ * · 输入参数处理功能；
+ * · 多数据库种类处理功能；
+ * · 其他功能。
  */
 package org.apache.ibatis.mapping;

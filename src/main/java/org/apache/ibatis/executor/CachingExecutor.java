@@ -33,6 +33,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.transaction.Transaction;
 
 /**
+ * 二级缓存功能由 CachingExecutor类实现，它是一个装饰器类，能通过装饰实际执行器为它们增加二级缓存功能
+ * 在 Configuration的newExecutor方法中，MyBatis会根据配置文件中的二级缓存开关配置用CachingExecutor类装饰实际执行器
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  */

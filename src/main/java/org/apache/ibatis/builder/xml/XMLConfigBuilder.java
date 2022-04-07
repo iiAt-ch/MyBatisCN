@@ -47,6 +47,8 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.type.JdbcType;
 
 /**
+ * 配置文件的解析工作是由 XMLConfigBuilder 类负责的，同时该类会用解析的结果建造出一个 Configuration对象
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

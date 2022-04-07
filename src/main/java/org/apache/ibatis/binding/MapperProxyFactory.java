@@ -23,6 +23,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * MapperProxy的生产工厂，newInstance核心方法会生成一个 MapperProxy对象
+ *
  * @author Lasse Voss
  */
 public class MapperProxyFactory<T> {

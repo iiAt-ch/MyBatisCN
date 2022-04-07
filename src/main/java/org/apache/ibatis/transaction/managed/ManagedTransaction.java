@@ -29,6 +29,10 @@ import org.apache.ibatis.transaction.Transaction;
  * Delays connection retrieval until getConnection() is called.
  * Ignores all commit or rollback requests.
  * By default, it closes the connection but can be configured not to do it.
+ * 以 Spring容器为例。当 MyBatis和 Spring集成时，MyBatis中拿到的数据库连接对象是 Spring给出的。
+ * Spring可以通过 XML配置、注解等多种方式来管理事务（即决定事务何时开启、回滚、提交）。
+ * 当然，这种情况下，事务的最终实现也是通过 Connection对象的相关方法进行的。
+ * 整个过程中，MyBatis 不需要处理任何事务操作，全都委托给 Spring即可
  *
  * @author Clinton Begin
  *

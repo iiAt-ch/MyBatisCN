@@ -21,6 +21,9 @@ import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
 
 /**
+ * SystemMetaObject中限定了一些默认值，其中的 forObject方法可以使用默认值输出一个 MetaObject对象。
+ * 因此，SystemMetaObject是一个只能使用默认值的MetaObject工厂
+ *
  * @author Clinton Begin
  */
 public final class SystemMetaObject {

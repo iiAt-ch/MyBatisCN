@@ -18,6 +18,8 @@ package org.apache.ibatis.cache.decorators;
 import org.apache.ibatis.cache.Cache;
 
 /**
+ * 在使用 MyBatis的过程中，可能会出现多个线程同时访问一个缓存的情况
+ *
  * @author Clinton Begin
  */
 public class SynchronizedCache implements Cache {

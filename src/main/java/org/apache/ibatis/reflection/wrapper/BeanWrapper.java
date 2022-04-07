@@ -27,6 +27,8 @@ import org.apache.ibatis.reflection.invoker.Invoker;
 import org.apache.ibatis.reflection.property.PropertyTokenizer;
 
 /**
+ * 一个 Bean经过 BeanWrapper封装后，就可以暴露出大量的易用方法，从而可以简单地实现对其属性、方法的操作
+ *
  * @author Clinton Begin
  */
 public class BeanWrapper extends BaseWrapper {

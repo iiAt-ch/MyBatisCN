@@ -43,6 +43,7 @@ public class ParameterExpression extends HashMap<String, String> {
   }
 
   // content = id, javaType= int, jdbcType=NUMERIC, typeHandler=DemoTypeHandler ;
+  // 对于没有声明属性名称的属性值，ParameterExpression会为其赋予默认的属性名称“expression”
   private void parse(String expression) {
     // 跳过空格
     int p = skipWS(expression, 0);

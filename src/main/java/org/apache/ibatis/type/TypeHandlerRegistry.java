@@ -48,6 +48,9 @@ import org.apache.ibatis.io.ResolverUtil;
 import org.apache.ibatis.io.Resources;
 
 /**
+ * 类型处理器注册表
+ * 数据类型和相关处理器的对应关系就是由它维护的
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */
@@ -55,6 +58,11 @@ public final class TypeHandlerRegistry {
 
   // JDBC类型与对应类型处理器的映射
   private final Map<JdbcType, TypeHandler<?>>  jdbcTypeHandlerMap = new EnumMap<>(JdbcType.class);
+  /**
+   * 假设某个对象中存在一个“String name”属性，则 name属性在 Java中的数据类型是String。
+   * 然而它在数据库中可能是 char、varchar，也可能是 tinytext、text 等多种类型。
+   * 因此，Java数据类型和 JDBC数据类型并不是一对一的关系，而是一对多的关系
+   */
   // Java类型与Map<JdbcType, TypeHandler<?>>的映射
   private final Map<Type, Map<JdbcType, TypeHandler<?>>> typeHandlerMap = new ConcurrentHashMap<>();
   // 未知类型的处理器
@@ -219,6 +227,10 @@ public final class TypeHandlerRegistry {
 
   /**
    * 找出一个类型处理器
+   * 实际就是一个两次映射的过程。
+   * · 根据传入的 Java 类型，调用 getJdbcHandlerMap 子方法找寻对应的jdbcTypeHandlerMap后返回。
+   * · 基于 jdbcTypeHandlerMap，根据 JDBC类型找到对应的 TypeHandler
+   *
    * @param type Java类型
    * @param jdbcType JDBC类型
    * @param <T> 类型处理器的目标类型

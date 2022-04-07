@@ -33,6 +33,8 @@ import javax.sql.DataSource;
 import org.apache.ibatis.io.Resources;
 
 /**
+ * 非池化数据源是最简单的数据源，它只需要在每次请求连接时打开连接，在每次连接结束时关闭连接即可
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  */

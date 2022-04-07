@@ -22,6 +22,8 @@ import org.apache.ibatis.reflection.ReflectionException;
 /**
  * @author Clinton Begin
  * 属性（包括属性方法）名称处理器
+ * 例如，通过 get、set方法的方法名找出对应的属性等。
+ * 要想让 PropertyNamer 正常地发挥作用，需保证对象属性、方法的命名遵循 Java Bean的命名规范
  */
 public final class PropertyNamer {
 
@@ -29,7 +31,13 @@ public final class PropertyNamer {
     // Prevent Instantiation of Static Class
   }
 
-  // 将方法名转化为属性名
+  /**
+   * 将方法名转化为属性名
+   * 需保证对象属性、方法的命名遵循 Java Bean的命名规范
+   *
+   * @param name
+   * @return
+   */
   public static String methodToProperty(String name) {
     if (name.startsWith("is")) {
       name = name.substring(2);
@@ -40,6 +48,7 @@ public final class PropertyNamer {
     }
 
     // 将方法名中属性的大小写修改正确
+    // NAme，这种就不会修改，Name会修改
     if (name.length() == 1 || (name.length() > 1 && !Character.isUpperCase(name.charAt(1)))) {
       name = name.substring(0, 1).toLowerCase(Locale.ENGLISH) + name.substring(1);
     }

@@ -28,6 +28,9 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 
+/**
+ * 参数名解析器，用来按顺序列出方法中的虚参，并对实参进行名称标注
+ */
 public class ParamNameResolver {
 
   private static final String GENERIC_NAME_PREFIX = "param";
@@ -55,6 +58,8 @@ public class ParamNameResolver {
 
   /**
    * 参数名解析器的构造方法
+   * 能够将目标方法的参数名称依次列举出来。在列举的过程中，如果某个参数存在@Param注解，则会用注解的 value值替换参数名
+   *
    * @param config 配置信息
    * @param method 要被分析的方法
    */
@@ -122,7 +127,7 @@ public class ParamNameResolver {
    * In addition to the default names, this method also adds the generic names (param1, param2,
    * ...).
    * </p>
-   *
+   * 在构造方法确定的 names属性和hasParamAnnotation属性值的基础上，给出实参的参数名
    * 将被解析的方法中的参数名称列表与传入的`Object[] args`进行对应，返回对应关系。
    *
    *

@@ -30,6 +30,8 @@ import org.apache.ibatis.session.Configuration;
  * {@link CallableStatement#wasNull()} method for handling the SQL {@code NULL} value.
  * In other words, {@code null} value handling should be performed on subclass.
  * </p>
+ * 类型处理器的基础实现
+ * 典型的模板模式
  *
  * @author Clinton Begin
  * @author Simone Tripodi
@@ -109,15 +111,42 @@ public abstract class BaseTypeHandler<T> extends TypeReference<T> implements Typ
     }
   }
 
+  /**
+   * 向PreparedStatement对象中的指定变量位置写入一个不为 null的值
+   *
+   * @param ps
+   * @param i
+   * @param parameter
+   * @param jdbcType
+   * @throws SQLException
+   */
   public abstract void setNonNullParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException;
 
   /**
+   * 从 ResultSet 中按照字段名读出一个可能为null的数据
+   *
    * @param columnName Colunm name, when configuration <code>useColumnLabel</code> is <code>false</code>
    */
   public abstract T getNullableResult(ResultSet rs, String columnName) throws SQLException;
 
+  /**
+   * 从 ResultSet 中按照字段编号读出一个可能为null的数据
+   *
+   * @param rs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   public abstract T getNullableResult(ResultSet rs, int columnIndex) throws SQLException;
 
+  /**
+   * 从 CallableStatement中按照字段编号读出一个可能为 null的数据
+   *
+   * @param cs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   public abstract T getNullableResult(CallableStatement cs, int columnIndex) throws SQLException;
 
 }

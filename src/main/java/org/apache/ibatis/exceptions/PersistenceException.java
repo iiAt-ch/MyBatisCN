@@ -16,6 +16,8 @@
 package org.apache.ibatis.exceptions;
 
 /**
+ * 在 MyBatis的其他包中，还有许多异常类。这些异常类中除 RuntimeSqlException类外，均为 PersistenceException的子类
+ *
  * @author Clinton Begin
  */
 @SuppressWarnings("deprecation")

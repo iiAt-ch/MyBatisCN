@@ -19,6 +19,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
+ * 一个典型的对象适配器。它的内部持有一个“org.apache.commons.logging.Log”对象，然后所有方法都将操作委托给了该对象。
+ *
  * @author Clinton Begin
  *  实现包
  */

@@ -43,6 +43,8 @@ import org.xml.sax.SAXParseException;
  * @author Clinton Begin
  * @author Kazuki Shimizu
  * 解析XML的解析器
+ * 整个XPathParser类本质就是对“javax.xml.xpath.XPath”的封装和调用，可以把XPathParser类看作 javax.xml.xpath.XPath类的包装类
+ *
  */
 public class XPathParser {
 
@@ -52,7 +54,8 @@ public class XPathParser {
   private boolean validation;
   // EntityResolver，通过它可以声明寻找DTD文件的方法，例如通过本地寻找，而不是只能通过网络下载dtd文件
   private EntityResolver entityResolver;
-  // MyBatis配置文件中的properties信息
+  // MyBatis配置文件中的properties 节点的信息
+  // properties 节点会在解析配置文件的最开始就被解析，然后相关信息会被放入“private Properties variables”属性并在解析后续节点时发挥作用
   private Properties variables;
   // javax.xml.xpath.XPath工具
   private XPath xpath;

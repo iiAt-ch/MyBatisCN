@@ -18,6 +18,8 @@ package org.apache.ibatis.parsing;
 import java.util.Properties;
 
 /**
+ * 属性解析器
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */
@@ -62,6 +64,7 @@ public class PropertyParser {
     // 创建通用的占位符解析器
     GenericTokenParser parser = new GenericTokenParser("${", "}", handler);
     // 开展解析，即替换占位符中的值
+    // 这样一来，只要在 XML文件中使用“${”和“}”包围一个变量名，则该变量名就会被替换成 properties节点中对应的值
     return parser.parse(string);
   }
 

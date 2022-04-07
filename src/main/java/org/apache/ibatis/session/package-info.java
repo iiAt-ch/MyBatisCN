@@ -15,5 +15,6 @@
  */
 /**
  * Base package. Contains the SqlSession.
+ * session包是整个 MyBatis应用的对外接口包，是离用户最近的包
  */
 package org.apache.ibatis.session;

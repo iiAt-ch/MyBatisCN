@@ -15,5 +15,10 @@
  */
 /**
  * Base package for the Configuration building code
+ * 配置解析包-builder
+ * builder包是一个按照类型划分出来的包，包中存在许多的建造者类
+ * builder包是一个按照类型方式划分的包，但是在该包中也完成了以下两个比较完整的功能。
+ * · 一是解析 XML配置文件和映射文件，这部分功能在 xml子包中；
+ * · 二是解析注解形式的 Mapper声明，这部分功能在 annotation子包中。
  */
 package org.apache.ibatis.builder;

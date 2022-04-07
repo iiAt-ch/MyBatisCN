@@ -15,5 +15,6 @@
  */
 /**
  * Tools for getting/setting properties
+ * 属性子包，该子包中的类用来完成与对象属性相关的操作。
  */
 package org.apache.ibatis.reflection.property;

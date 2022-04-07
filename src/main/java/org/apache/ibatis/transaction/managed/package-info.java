@@ -15,5 +15,6 @@
  */
 /**
  * External transaction.
+ * managed子包中存放的是实现容器事务的 ManagedTransaction类及其对应的工厂类
  */
 package org.apache.ibatis.transaction.managed;

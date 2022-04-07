@@ -15,5 +15,8 @@
  */
 /**
  * Parsing utils
+ * 基础功能包-解析
+ * MyBatis的配置文件与映射文件均是 XML文件，因此解析并读取 XML文档中的内容是 MyBatis展开后续工作的基础。
+ * MyBatis中的 parsing包就是用来进行 XML文件解析的包。在解析 XML文件的过程中，XPathParser类与 XNode类是两个最为关键的类
  */
 package org.apache.ibatis.parsing;

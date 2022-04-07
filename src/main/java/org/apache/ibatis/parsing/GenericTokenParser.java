@@ -37,6 +37,8 @@ public class GenericTokenParser {
   }
 
   /**
+   * GenericTokenParser 类中有唯一的一个 parse 方法，该方法主要完成占位符的定位工作，
+   * 然后把占位符的替换工作交给与其关联的 TokenHandler 处理
    *
    * @param text 输入：
    *             SELECT * FROM t_action

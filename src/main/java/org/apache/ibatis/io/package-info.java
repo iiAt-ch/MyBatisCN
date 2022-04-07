@@ -15,5 +15,8 @@
  */
 /**
  * Utilities to read resources.
+ * 基础功能包
+ * 在 MyBatis的工作中，与磁盘文件的交互主要是对 xml配置文件的读操作。因此，io包中提供对磁盘文件读操作的支持。
+ * 除了读取磁盘文件的功能外，io包还提供对内存中类文件（class文件）的操作
  */
 package org.apache.ibatis.io;

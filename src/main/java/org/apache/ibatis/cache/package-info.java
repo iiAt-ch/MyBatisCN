@@ -15,5 +15,9 @@
  */
 /**
  * Base package for caching stuff
+ *
+ * MyBatis 每秒可能要处理数万条数据库查询请求，而这些请求可能是重复的。
+ * 缓存能够显著降低数据库查询次数，提升整个 MyBatis的性能。MyBatis 缓存使得每次数据库查询请求都会先经过缓存系统的过滤，
+ * 只有在没有命中缓存的情况下才会去查询物理数据库。cache包就是 MyBatis缓存能力的提供者
  */
 package org.apache.ibatis.cache;

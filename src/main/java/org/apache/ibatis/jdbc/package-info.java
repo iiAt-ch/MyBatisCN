@@ -15,5 +15,11 @@
  */
 /**
  * Utilities for JDBC.
+ * 整个 jdbc包中的所有类都没有被外部引用过，那该包有什么存在的意义？
+ * 那是因为 jdbc包是 MyBatis提供的一个功能独立的工具包，留给用户自行使用而不是由 MyBatis调用
+ *
+ * SqlRunner类和 ScriptRunner类则为用户提供了执行 SQL语句和脚本的能力。有些情况下，
+ * 我们要对数据库进行一些设置操作（如运行一些 D D L操作），这时并不需要通过MyBatis提供 ORM功能，
+ * 那么 SqlRunner类和 ScriptRunner类将是非常好的选择
  */
 package org.apache.ibatis.jdbc;

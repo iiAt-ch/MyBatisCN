@@ -30,6 +30,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
+ * SQL 节点树的组建由 XMLScriptBuilder 类负责
+ *
  * @author Clinton Begin
  */
 public class XMLScriptBuilder extends BaseBuilder {
@@ -71,6 +73,7 @@ public class XMLScriptBuilder extends BaseBuilder {
 
   /**
    * 解析节点生成SqlSource对象
+   *
    * @return SqlSource对象
    */
   public SqlSource parseScriptNode() {
@@ -126,6 +129,9 @@ public class XMLScriptBuilder extends BaseBuilder {
     return new MixedSqlNode(contents);
   }
 
+  /**
+   * 每一种 SQL节点都有一个 NodeHandler实现类。SQL节点和NodeHandler实现类的对应关系由nodeHandlerMap负责存储。
+   */
   private interface NodeHandler {
     /**
      * 该方法将当前节点拼装到节点树中

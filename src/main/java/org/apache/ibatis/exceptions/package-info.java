@@ -15,5 +15,7 @@
  */
 /**
  * Base package for exceptions.
+ * 基础功能包-异常
+ * 为 MyBatis定义了绝大多数异常类的父类，同时也提供了异常类的生产工厂
  */
 package org.apache.ibatis.exceptions;

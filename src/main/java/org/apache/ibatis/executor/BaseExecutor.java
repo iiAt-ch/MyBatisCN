@@ -45,6 +45,8 @@ import org.apache.ibatis.transaction.Transaction;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * BaseExecutor 是一个抽象类，并用到了模板模式。它实现了其子类的一些共有的基础功能，而将与子类直接相关的操作交给子类处理
+ *
  * @author Clinton Begin
  */
 public abstract class BaseExecutor implements Executor {
@@ -55,6 +57,10 @@ public abstract class BaseExecutor implements Executor {
   protected Executor wrapper;
 
   protected ConcurrentLinkedQueue<DeferredLoad> deferredLoads;
+  // 一级缓存功能由 BaseExecutor类实现。BaseExecutor类作为实际执行器的基类，
+  // 为所有实际执行器提供一些通用的基本功能，在这里增加缓存也就意味着每个实际执行器都具有这一级缓存
+  // 可见一级缓存就是 BaseExecutor中的两个 PerpetualCache类型的属性，其作用范围很有限，
+  // 不支持各种装饰器的修饰，因此不能进行容量配置、清理策略设置及阻塞设置等
   // 查询操作的结果缓存
   protected PerpetualCache localCache;
   // Callable查询的输出参数缓存
@@ -124,7 +130,7 @@ public abstract class BaseExecutor implements Executor {
       // 执行器已经关闭
       throw new ExecutorException("Executor was closed.");
     }
-    // 清理本地缓存
+    // 清理本地缓存(一级缓存)
     clearLocalCache();
     // 返回调用子类进行操作
     return doUpdate(ms, parameter);
@@ -406,7 +412,7 @@ public abstract class BaseExecutor implements Executor {
   protected Connection getConnection(Log statementLog) throws SQLException {
     Connection connection = transaction.getConnection();
     if (statementLog.isDebugEnabled()) { // 启用调试日志
-      // 生成Connection对象的具有日志记录功能的代理对象ConnectionLogger对象
+      // 生成Connection对象的具有日志记录功能的代理对象ConnectionLogger对象（动态代理）
       return ConnectionLogger.newInstance(connection, statementLog, queryStack);
     } else {
       // 返回原始的Connection对象

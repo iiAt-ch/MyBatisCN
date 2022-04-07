@@ -30,6 +30,8 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * 上面的几种都是通过 XML 文件获取的 SQL 语句，而ProviderSqlSource是通过注解映射的形式获取的 SQL语句
+ *
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

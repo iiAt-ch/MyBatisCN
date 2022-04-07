@@ -27,7 +27,13 @@ import java.lang.reflect.Type;
  */
 
 /**
+ * 类型参考器
  * 用来处理泛型
+ * 当 MyBatis取到某一个 TypeHandler 时，却不知道它到底是用来处理哪一种 Java类型的处理器？
+ * 为了解决这一问题，MyBatis 定义了一个 TypeReference 类。
+ * 它能够判断出一个TypeHandler用来处理的目标类型。而它判断的方法也很简单：
+ * 取出 TypeHandler实现类中的泛型参数 T的类型，这个值的类型也便是该 TypeHandler能处理的目标类型
+ *
  * @param <T>
  */
 public abstract class TypeReference<T> {

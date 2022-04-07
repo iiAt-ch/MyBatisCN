@@ -30,6 +30,7 @@ import org.apache.ibatis.session.SqlSession;
  * @author Eduardo Macarron
  *
  * 参见代理模式，这是代理类本身，通过invoke方法代理被代理对象的操作
+ * 它基于动态代理将针对映射接口的方法调用转接成了对 MapperMethod对象 execute方法的调用，进而实现了数据库操作
  *
  */
 public class MapperProxy<T> implements InvocationHandler, Serializable {
@@ -46,6 +47,14 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     this.methodCache = methodCache;
   }
 
+  /**
+   * 代理方法
+   * @param proxy 代理对象
+   * @param method 代理方法
+   * @param args 代理方法的参数
+   * @return 方法执行结果
+   * @throws Throwable
+   */
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     try {

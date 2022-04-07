@@ -15,5 +15,6 @@
  */
 /**
  * Base package for loading results into beans
+ * 懒加载
  */
 package org.apache.ibatis.executor.loader;
